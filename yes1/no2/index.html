@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dirgh Shah</title>
+    <style>
+        body {
+            overflow: hidden;
+            position: relative;
+        }
+
+        #mainContent {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .floating {
+            position: absolute;
+            font-size: 24px;
+            animation: float 10s linear infinite;
+        }
+
+        @keyframes float {
+            100% {
+                transform: translateY(0) translateX(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-1000px) translateX(0px);
+                opacity: 1;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
+</head>
+
+<body>
+    <style>
+        img {
+            max-width: 90%;
+            height: auto;
+        }
+
+        button {
+            min-width: 120px;
+            padding: 12px 20px;
+            font-size: 16px;
+        }
+    </style>
+
+    <div id="mainContent" style="text-align:center; margin-top:50px;">
+        <img src="../../images/sad.png" width="300">
+        <h2>:(</h2>
+        <button onclick="madeMistake()">i made a mistake</button>
+    </div>
+
+    <script>
+        function madeMistake() {
+            window.location.href = "../";
+        }
+
+        const emojis = ['👎', '😡', '💢', '👿', '💥', 'BOOOOOO!', 'EWWWWWW!', 'PUSSY!'];
+        for (let i = 0; i < 100; i++) {
+            const span = document.createElement('span');
+            span.className = 'floating';
+            span.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+            span.style.left = Math.random() * window.innerWidth + 'px';
+            span.style.top = window.innerHeight + 'px';
+            span.style.animationDuration = (2 + Math.random() * 10) + 's';
+            document.body.appendChild(span);
+        }
+    </script>
+</body>
+
+</html>
